@@ -95,3 +95,15 @@ RwLock<> allows us to read data concurrently and one write operation at a time. 
 It is because it's not a thread-safe. If we try the mentioned method, it would be possible for multiple threads to access and modify the content of the static variable concurrently, which is a problem. 
 
 #### Reflection Subscriber-2
+
+> Have you explored things outside of the steps in the tutorial, for example: src/lib.rs? If not, explain why you did not do so. If yes, explain things that you have learned from those other parts of code.
+
+I tried to take a peek at each files. I learned that the lib.rs contains utility functions like reading .env, custom error messaging, and configurations. I learned that DashMap is essentially a HashMap but allows concurrency in reading and writing.
+
+> Since you have completed the tutorial by now and have tried to test your notification system by spawning multiple instances of Receiver, explain how Observer pattern eases you to plug in more subscribers. How about spawning more than one instance of Main app, will it still be easy enough to add to the system?
+
+The observer pattern helps us to add more subscriber without modifying the publisher. It is because publisher doesn't have the responsibility to keep up who are the subscribers. It is Observer's job to do that. If we spawning more than one instance, it could cause some issues. 
+
+> Have you tried to make your own Tests, or enhance documentation on your Postman collection? If you have tried those features, tell us whether it is useful for your work (it can be your tutorial work or your Group Project).
+
+I have tried to tests the endpoints inside the Postman collection. I was making sure that the subscribtion to publisher works. It is also useful for my work because it helps me to understand how the system works.
